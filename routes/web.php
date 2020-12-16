@@ -14,5 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal');
 });
+Route::get('hotel/historia ', function () {
+  return view('hotel.historia');
+});
+Route::get('hotel/mision-vision ', function () {
+  return view('hotel.vision'); 
+});
+Route::get('hotel/ubicación ', function () {
+  return view('hotel.ubicación');  
+});
+Route::get('servicios/habitaciones ', function () {
+  return view('servicios.habitaciones');  
+});
+Route::get('servicios/eventos/{id} ', function ($id) {
+  return view('servicios.eventos', array('id'=> $id)); 
+});
+Route::get('reservas ', function () {
+  return view('reservas.reservas');  
+});
+Route::get('contáctos', function () {
+  return view('contacto');
+  
+});
+
