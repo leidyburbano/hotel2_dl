@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\HabitacionesController;
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\FacturacionController;
+use App\Http\Controllers\ReservasController;
+use App\Http\Controllers\eventos;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,29 +20,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('principal');
-});
-Route::get('hotel/historia ', function () {
-  return view('hotel.historia');
-});
-Route::get('hotel/mision-vision ', function () {
-  return view('hotel.vision'); 
-});
-Route::get('hotel/ubicación ', function () {
-  return view('hotel.ubicación');  
-});
-Route::get('servicios/habitaciones ', function () {
-  return view('servicios.habitaciones');  
-});
-Route::get('servicios/eventos/{id} ', function ($id) {
-  return view('servicios.eventos', array('id'=> $id)); 
-});
-Route::get('reservas ', function () {
-  return view('reservas.reservas');  
-});
-Route::get('contáctos', function () {
-  return view('contacto');
-  
-});
+  Route::get('/' , [HotelController::class, 'getIndex']);
+
+  Route::get('hotel/historia ',  [HotelController::class, 'showHistoria']);
+
+  Route::get('hotel/mision-vision ', [HotelController::class, 'showMision']);
+ 
+  Route::get('hotel/ubicación ', [HotelController::class, 'showUbicacion']);
+
+  Route::get('contáctos', [HotelController::class, 'showContactos']);
+
+  Route::get('servicios/habitaciones ', [HabitacionesController::class, 'showHabitaciones']);
+
+  Route::get('clientes/visualizar ', [ClientesController::class, 'showClientes']);
+
+  Route::get('facturacion', [FacturacionController::class, 'getFactura']);
+
+  Route::get('reservas ', [ReservasController::class, 'getReservas']);
+
+  Route::get('servicios/eventos/{id} ', [eventos::class, 'evento']);
+
+
+
+
 
