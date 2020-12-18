@@ -1,8 +1,11 @@
 
   @extends('Layout.master')
   @section('content')
-  <h2> Clientes Registrados</h2>
 
+  <div class="text-center">
+  <br>
+  <h2> Clientes Registrados</h2>
+  <br>
     <div class = "container">
       <div class = "row">
         @foreach($Clientes as $c)
@@ -33,5 +36,5 @@
       </div>
       <br> <br>
     </div>
-
+  </div>
   @stop

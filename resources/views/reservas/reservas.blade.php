@@ -1,19 +1,45 @@
-@extends('Layout.master')
-@section('content')
-  Reservas 
+  
+  @extends('Layout.master')
+  @section('content')
+      <br>
+      <div class="text-center">
+      <h1> Lista de Habitaciones Alquiladas</h1>
+      </div>
+      <br>
+          <div class="container">
+            <div class="row">
+                @foreach($consulta as $c)
+                  <div class="col-md-4">
+                  
+                    <div class="card">
 
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">  <h3>Reservas </h3> </h1>
-    <p class="lead">proporciona una imagen de amabilidad en el trato y eficiencia en la prestación de servicio.  </p>
-    <p class="lead">Gestión eficiente de la disponibilidad de habitaciones, revisando constantemente el nivel de ocupación y realizando previsiones adecuada para evitar situaciones conflictivas tales como sobreocupación.</p>
-    <p class="lead"> Gestionar de forma ágil y con solvencia cualquier solicitud de alojamiento por parte de un cliente. </p>
-    <p class="lead"> Has tu reserva vía telefónica o vía internet  </p>
-  </div>
-</div>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://data.1freewallpapers.com/download/spa-beach-hotel.jpg" class="d-block w-100" alt="...">
-    </div>
-@stop
+                      <div class="view overlay">
+                        <img class="card-img-top" src='{{url("img/$c->foto")}}'>
+                        <a>
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                      <div class="card-body default-color-dark white-text rounded-bottom">
+                        <h4 class="card-title">{{$c->Numero}}: {{$c->Tipo}}</h4>
+                        <p class="card-text white-text mb-4">Precio: {{$c->precio}}</p>
+
+                        <a href="#" class="btn btn-primary">Actualizar</a> 
+                        <a href="#" class="btn btn-danger">Eliminar </a>  
+
+                        <hr class="hr-light">
+                        <p class="card-text white-text mb-2"><strong>Reservada</strong></p>
+                    </div>
+                  </div>
+                  <br><br>           
+                </div>
+                @endforeach
+              </div>
+  
+              <a href="{{url('/')}}" class="btn btn-secondary">Regresar</a>  
+              <br> 
+              <br>
+            </div>
+          </div>
+          <br>
+
+  @stop
