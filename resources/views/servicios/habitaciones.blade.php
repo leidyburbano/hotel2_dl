@@ -12,6 +12,7 @@
                     <img src='{{url("/img/$h->foto")}}' class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Tipos de Habitacion</h5>
+                            <p class="card-text" aling="justify">{{ $h->Numero }}</p>
                             <p class="card-text" aling="justify">{{ $h->descripcion }}</p>
                             <p class="card-text" aling="justify"> Numero De Camas: {{ $h->numCamas }}</p>
                             <p class="card-text" aling="justify"> Precio: {{ $h->precio_id }}</p>
